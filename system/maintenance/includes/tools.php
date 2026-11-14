@@ -40,7 +40,27 @@ function getMaintenanceTools(): array
             'keywords' => 'system.landing.orphaned_keywords',
             'count'    => 'maintenanceCountOrphanedTickets',
         ],
+        // Assets whose Intune user differs (GH #335): a holder here, while a
+        // linked device names somebody else as its primary user in Intune.
+        [
+            'url'      => 'intune-user-mismatch/',
+            'icon'     => 'intune_mismatch',
+            'title'    => 'system.landing.intune_mismatch_title',
+            'desc'     => 'system.landing.intune_mismatch_desc',
+            'keywords' => 'system.landing.intune_mismatch_keywords',
+            'count'    => 'maintenanceCountIntuneMismatch',
+        ],
     ];
+}
+
+/**
+ * Assets whose Intune user differs: one COUNT, the rule the page lists by
+ * (intuneAssetsWithDifferentUser()).
+ */
+function maintenanceCountIntuneMismatch(PDO $conn): int
+{
+    require_once __DIR__ . '/../../../includes/intune_user_history.php';
+    return intuneCountAssetsWithDifferentUser($conn);
 }
 
 /**

@@ -29,6 +29,8 @@ require __DIR__ . '/_top.php';
     </div>
     <h4>Orphaned tickets</h4>
     <p>Tickets in a department that has been deleted, which hides them from every team's queue. Reassign them to a real department, one at a time or in bulk. See <a href="orphaned-tickets.php">Orphaned tickets</a>.</p>
+    <h4>Assets whose Intune user differs</h4>
+    <p>Assets held by one person here while a linked Intune device names somebody else as its primary user. Its count is how many there are. See <a href="intune-user-mismatch.php">Assets whose Intune user differs</a>.</p>
     <div class="help-note">A tool keeps its own address when it moves here, so a bookmark to <code>system/orphaned-tickets/</code> still works.</div>
 </div>
 
